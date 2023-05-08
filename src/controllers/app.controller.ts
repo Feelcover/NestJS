@@ -1,4 +1,4 @@
-import { Controller, Get, Param} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post} from '@nestjs/common';
 
 interface Task {
   id:number;
@@ -19,5 +19,11 @@ export class AppController {
  @Get(':id')
  getTaskById(@Param("id") id:number):Task {
   return this.tasks.find(t => t.id === +id);
+ }
+
+ @Post()
+ createTask(@Body("task") task:Task):Task {
+  this.tasks.push(task);
+  return task;
  }
 }
