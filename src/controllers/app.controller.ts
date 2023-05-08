@@ -1,9 +1,23 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param} from '@nestjs/common';
 
-@Controller()
+interface Task {
+  id:number;
+  task: string;
+}
+
+@Controller('task')
 export class AppController {
+  private tasks: Task[] = [
+    {id:1, task: 'task1'},
+    {id:2, task: 'task2'},
+  ];
  @Get()
- test(){
-  return {result: "Всё работает", status:200}
+ getTasks(){
+  return this.tasks;
+ } 
+
+ @Get(':id')
+ getTaskById(@Param("id") id:number):Task {
+  return this.tasks.find(t => t.id === +id);
  }
 }
