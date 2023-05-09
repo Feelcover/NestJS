@@ -1,9 +1,7 @@
 import { Body, Controller, Get, Param, Post} from '@nestjs/common';
+import { Task } from 'test/task.interface';
 
-interface Task {
-  id:number;
-  task: string;
-}
+
 
 @Controller('task')
 export class AppController {
