@@ -12,8 +12,13 @@ export class TestService {
     return this.tasks;
   }
 
-  getTaskById(id: number): ITask {
+  getTaskById(id: string): ITask {
     const task = this.tasks.find((t) => t.id === +id);
     return task;
   }
+
+  createTask(task:ITask):ITask {
+    this.tasks.push(task);
+    return task;
+   }
 }
