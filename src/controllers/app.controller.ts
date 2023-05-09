@@ -1,11 +1,11 @@
 import { Body, Controller, Get, Param, Post} from '@nestjs/common';
-import { Task } from 'test/task.interface';
+import { ITask } from 'test/task.interface';
 
 
 
 @Controller('task')
 export class AppController {
-  private tasks: Task[] = [
+  private tasks: ITask[] = [
     {id:1, task: 'task1'},
     {id:2, task: 'task2'},
   ];
@@ -15,12 +15,12 @@ export class AppController {
  } 
 
  @Get(':id')
- getTaskById(@Param("id") id:number):Task {
+ getTaskById(@Param("id") id:number):ITask {
   return this.tasks.find(t => t.id === +id);
  }
 
  @Post()
- createTask(@Body("task") task:Task):Task {
+ createTask(@Body("task") task:ITask):ITask {
   this.tasks.push(task);
   return task;
  }
