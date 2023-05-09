@@ -1,12 +1,12 @@
 import { Body, Controller, Get, Param, Post} from '@nestjs/common';
-import { ITask } from 'test/task.interface';
-import { TestService } from 'test/test.service';
+import { ITask } from './task.interface';
+import { TaskService } from './task.service';
 
 
 
 @Controller('task')
-export class AppController {
-  constructor (private testService: TestService ) {}
+export class TaskController {
+  constructor (private testService: TaskService ) {}
 
  @Get()
  getTasks():ITask[] {

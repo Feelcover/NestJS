@@ -2,7 +2,7 @@ import { Injectable} from '@nestjs/common';
 import { ITask } from './task.interface';
 
 @Injectable()
-export class TestService {
+export class TaskService {
   private tasks: ITask[] = [
     { id: 1, task: 'task1' },
     { id: 2, task: 'task2' },
