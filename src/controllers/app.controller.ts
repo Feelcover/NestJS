@@ -5,12 +5,9 @@ import { ITask } from 'test/task.interface';
 
 @Controller('task')
 export class AppController {
-  private tasks: ITask[] = [
-    {id:1, task: 'task1'},
-    {id:2, task: 'task2'},
-  ];
+
  @Get()
- getTasks(){
+ getTasks():ITask[] {
   return this.tasks;
  } 
 
