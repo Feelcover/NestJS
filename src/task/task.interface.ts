@@ -1,7 +1,7 @@
 export enum Status {
-  CREATE = 'created',
+  CREATED = 'created',
   PROCESSING = 'processing',
-  ABORT = 'abort',
+  ABORTED = 'aborted',
   ERROR = 'error',
   DONE = 'done',
 }

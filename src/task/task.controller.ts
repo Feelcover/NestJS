@@ -19,7 +19,7 @@ export class TaskController {
  }
 
  @Post()
- createTask(@Body("task") task:string):ITask {
-  return this.testService.createTask(task);
+ createTask(@Body() {task, tags}:any):ITask {
+  return this.testService.createTask(task, tags);
  }
 }
