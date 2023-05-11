@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { ArrayNotEmpty, IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { Status } from '../task.interface';
 
 export class CreateTaskDto {
@@ -6,7 +6,7 @@ export class CreateTaskDto {
   @IsNotEmpty({ message: "Введите название задачи"})
   task: string;
 
-  @IsOptional()
+  @ArrayNotEmpty({message: "Укажите теги"})
   @IsString({ each: true, message: 'Неверный тип тегов' })
   tags?: string[];
 
