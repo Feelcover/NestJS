@@ -7,7 +7,7 @@ interface Error {
     [key: string]: string;
 }
 
-export class NotFound extends HttpException {
+export class NotFoundTask extends HttpException {
   constructor(error:Error = null) {
     super(
         {
