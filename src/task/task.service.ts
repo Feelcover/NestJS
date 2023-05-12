@@ -12,10 +12,10 @@ export class TaskService {
     return this.tasks;
   }
 
-  getTaskById(id: string): ITask {
-    const task = this.tasks.find((t) => t.id === +id);
+  getTaskById(id: number): ITask {
+    const task = this.tasks.find((t) => t.id === id);
     if (!task) {
-      throw new NotFoundTask({code:"error"});
+      throw new NotFoundTask({code:"taskId"});
     }
     return task;
   }
