@@ -15,7 +15,7 @@ export class TaskService {
   getTaskById(id: number): ITask {
     const task = this.tasks.find((t) => t.id === id);
     if (!task) {
-      throw new NotFoundTask({code:"taskId"});
+      throw new NotFoundTask({ code: 'taskId' });
     }
     return task;
   }
@@ -24,5 +24,13 @@ export class TaskService {
     const newTask = new Task(task, tags, status);
     this.tasks.push(newTask);
     return newTask;
+  }
+
+  deleteTaskById(id: number): void {
+    const index = this.tasks.findIndex((t) => t.id === id);
+    if (index === -1) {
+      throw new NotFoundTask();
+    }
+    this.tasks.splice(index, 1);
   }
 }
